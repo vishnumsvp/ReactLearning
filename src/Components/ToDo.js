@@ -25,7 +25,8 @@ class ToDo extends Component {
   setLocalDbData(data){
     let LocalDbData = (this.getLocalDbData()=== '')? [] :this.getLocalDbData();
     LocalDbData.push(data);
-    console.log(LocalDbData);
+    console.log("Data " +data);
+    console.log("LocalDb" + LocalDbData);
     window.localStorage.setItem('ReactToDo',LocalDbData);
   }
   componentWillMount(){
@@ -41,10 +42,11 @@ class ToDo extends Component {
   }
   handleAddToDo(newToDo){
     let localTodo = this.state.ReactTodo;
-    console.log(typeof localTodo);
+    console.log("localToDo from Handler " + typeof localTodo + "\n new Todo " + newToDo);
     localTodo.push(newToDo);
+    console.log(localTodo);
     this.setState({ReactTodo: localTodo});
-    this.setLocalDbData(this.state.ReactTodo.toString());
+    this.setLocalDbData(newToDo);
   }
 
   render() {

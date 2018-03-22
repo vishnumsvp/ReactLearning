@@ -6,9 +6,9 @@ class ToDoList extends Component {
       let todoItems;
       console.log(this.props.todos);
       if(this.props.todos.length>0){
-        todoItems = this.props.todos.map(todoitm =>{       
+        todoItems = this.props.todos.map((todoitm,index) =>{       
           return (
-              <li key={todoitm}>{todoitm}</li>
+              <li key={todoitm+"_"+index}>{todoitm}</li>
             );
         });
         return (
